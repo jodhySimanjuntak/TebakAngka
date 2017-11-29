@@ -14,13 +14,14 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class TebakArtis extends javax.swing.JFrame {
- String[] namaNama = {"Angelina", "Rina",
-            "Dewi", "Chelsea",
-            "Raisa", "Sheina", "Puspa",
-            "Sandora"};
- String soal;
- int angka = 5;
-    
+
+    String[] namaNama = {"Angelina", "Rina",
+        "Dewi", "Chelsea",
+        "Raisa", "Sheina", "Puspa",
+        "Sandora"};
+    String soal;
+    int angka = 5;
+
     public TebakArtis() {
         initComponents();
     }
@@ -125,44 +126,42 @@ public class TebakArtis extends javax.swing.JFrame {
 
     private void mulaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mulaiButtonActionPerformed
         // TODO add your handling code here:
-         soal = namaArtis().toLowerCase();
+        soal = namaArtis().toLowerCase();
         inputanTextField.setText(null);
-        hasilTextField.setText("SOAL : "+acakArtis().toUpperCase());
-       inputanTextField.setEditable(true);
-       inputanTextField.setEnabled(true);
-       cekButton.setEnabled(true);
-       mulaiButton.setVisible(false);
-       cekButton.setVisible(true);
-       angka = 5;
-       
-        
+        hasilTextField.setText("SOAL : " + acakArtis().toUpperCase());
+        inputanTextField.setEditable(true);
+        inputanTextField.setEnabled(true);
+        cekButton.setEnabled(true);
+        mulaiButton.setVisible(false);
+        cekButton.setVisible(true);
+        angka = 5;
+
+
     }//GEN-LAST:event_mulaiButtonActionPerformed
 
-    
     private String namaArtis() {
-       
+
         double namaSaja = Math.random() * 8;
         double nilai = Math.floor(namaSaja);
         String pilihNama = namaNama[(int) nilai];
         return pilihNama;
     }
-    
-    private String acakArtis () {
+
+    private String acakArtis() {
         char[] hurufNama = soal.toCharArray();
         Arrays.sort(hurufNama);
         String nama = new String(hurufNama);
         return nama;
     }
-    
-   
-    
+
+
     private void inputanTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputanTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputanTextFieldActionPerformed
 
     private void cekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekButtonActionPerformed
         // TODO add your handling code here:
-        
+
         String tebakan = inputanTextField.getText();
         angka--;
         if (tebakan.equalsIgnoreCase(soal)) {
@@ -171,11 +170,12 @@ public class TebakArtis extends javax.swing.JFrame {
             inputanTextField.setEnabled(false);
             mulaiButton.setVisible(true);
             cekButton.setEnabled(false);
-        }else {
-            hasilTextField.setText("Anda Salah, Silahkan Coba Lagi ! --> SOAL : "+acakArtis().toUpperCase()+
-                    " Kesempatan : " +angka);
+        } else {
+            hasilTextField.setText("Anda Salah, Silahkan Coba Lagi ! --> SOAL : " + acakArtis().toUpperCase()
+                    + " Kesempatan : " + angka);
             inputanTextField.setText(null);
-        } if (angka == 0) {
+        }
+        if (angka == 0) {
             JOptionPane.showMessageDialog(rootPane, "MAAF, Kesempatan Anda Sudah Habis !!");
             mulaiButton.setVisible(true);
         }
