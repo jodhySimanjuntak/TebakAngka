@@ -5,6 +5,7 @@
  */
 package id.co.indocyber;
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -166,10 +167,12 @@ public class TebakAngkaWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_cekAngkaButtonActionPerformed
 
     private int generateAngka () {
-        double random = Math.random() * 100;
-        double ceilValue = Math.cbrt(random);
-        int generateAngkaSoal = (int) random;
-        return generateAngkaSoal;
+        Random x = new Random();
+        int inds = x.nextInt(100);
+//        double random = Math.random() * 100;
+//        double ceilValue = Math.cbrt(random);
+//        int generateAngkaSoal = (int) random;
+        return inds;
     }
     
     /**
